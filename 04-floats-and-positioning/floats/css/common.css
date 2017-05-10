@@ -1,7 +1,10 @@
 /* All Float Page Styles */
 
 .container {
+  background: plum;
+  overflow: hidden;
   margin: 30px 50px;
+  padding: 30px 50px;
 }
 
 section {
