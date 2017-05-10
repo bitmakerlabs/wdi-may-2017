@@ -1,7 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
   line-height: 1.5;
+}
+
+body {
+  margin: 0;
+}
+
+/* container is added inside the major elements, but can also wrap around the document. Depeends on the deesired effect */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
+}
+
+main {
+  background-color: #BBBBBB;
 }
 
 .post > .highlight {
@@ -41,6 +61,11 @@ h1 {
   background-color: cadetblue;
 }
 
+nav li {
+  display: inline-block;
+  background-color: lime;
+}
+
 nav a {
   font-size: 32px;
   color: #990000;
@@ -62,4 +87,14 @@ nav li:last-child {
 
 nav li:nth-child(2n+1):hover {
   background-color: rgb(200, 20, 180);
+}
+
+/* ideally, add these using a class so checkboxes and radio buttons are not impacted */
+.field input, .field textarea, .field select {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
 }
