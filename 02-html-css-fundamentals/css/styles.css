@@ -1,0 +1,65 @@
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.post > .highlight {
+  background-color: yellow;
+  color: black;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.post > h1 {
+  font-size: 64px;
+  color: chartreuse;
+}
+
+.hero {
+  color: green;
+}
+
+h1 {
+  color: red;
+  /*color: purple;*/
+}
+
+header {
+  background-color: yellow;
+}
+
+.post {
+  font-size: 24px;
+}
+
+h1 {
+  color: purple;
+}
+
+#hero-unit {
+  background-color: cadetblue;
+}
+
+nav a {
+  font-size: 32px;
+  color: #990000;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #990000;
+  color: white;
+}
+
+nav li:first-child {
+  background-color: rgb(16, 16, 180);
+}
+
+nav li:last-child {
+  background-color: rgb(16, 240, 180);
+}
+
+nav li:nth-child(2n+1):hover {
+  background-color: rgb(200, 20, 180);
+}
