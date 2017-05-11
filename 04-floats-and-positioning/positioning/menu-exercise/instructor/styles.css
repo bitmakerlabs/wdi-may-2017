@@ -1,9 +1,50 @@
-/*
+body {
+  font-family: Arial, sans-serif;
+}
 
-  Insert styles here.
+img {
+  width: 100%;
+}
 
-  Open
-    /positioning/menu-exercise/final/index.html
-    to see what you're to recreate.
 
-*/
+
+h1 {
+  background: orange;
+  text-align: center;
+  padding: 1em;
+  border-bottom: grey solid 10px;
+}
+
+section {
+  border: 5px solid orange;
+  padding: 1em;
+}
+
+.feature {
+  width: 48%;
+}
+
+.feature.avocado-burger {
+    float: left;
+}
+
+.feature.sushi-donuts {
+    float: right;
+}
+
+section.features {
+    overflow: hidden;
+}
+
+section.features {
+    text-align: center;
+}
+
+section.features {}
+
+.feature.avocado-burger {
+}
+
+h3 {
+    font-size: 13px;
+}
