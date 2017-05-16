@@ -732,7 +732,7 @@ Let's try another `.each` loop.
 numbers = [1, 2, 3, 4, 5]
 
 numbers.each do |number|
-  puts "#{number} * #{5} is equal to #{number * 5}"
+  puts "#{number} * 5 is equal to #{number * 5}"
 end
 ```
 
@@ -750,7 +750,7 @@ Another way to write this is:
 
 ```ruby
 [1, 2, 3, 4, 5].each do |number|
-  puts "#{number} * #{5} is equal to #{number * 5}"
+  puts "#{number} * 5 is equal to #{number * 5}"
 end
 ```
 
@@ -763,7 +763,7 @@ You'll often come across examples that use `{ }` instead of `do...end`. The open
 Ruby coders usually use curlys for simpler iteration loops that only contain one line of code in their code block. For example, the loop above could be written like this:
 
 ```ruby
-[1, 2, 3, 4, 5].each { |number| puts "#{number} * #{5} is equal to #{number * 5}" }
+[1, 2, 3, 4, 5].each { |number| puts "#{number} * 5 is equal to #{number * 5}" }
 ```
 
 Notice the above example is the same as the earlier `do...end` block, except that everything is on one line, and `do` has been substituted with `{`, and `end` with `}`.
@@ -772,7 +772,7 @@ You may even find curlys used on multiple lines:
 
 ```ruby
 [1, 2, 3, 4, 5].each { |number|
-  puts "#{number} * #{5} is equal to #{number * 5}"
+  puts "#{number} * 5 is equal to #{number * 5}"
 }
 ```
 
