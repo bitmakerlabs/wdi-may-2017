@@ -13,7 +13,20 @@ I should be able to...
 So that...
 
 
-
+As a user, I should be able to call one of my contacts
+As a user, I should be able to see my message history
+As a user, I should be able to sort contacts by name
+As a user, I should be able to edit a contact
+As a user, I should be able to group contacts
+As a user, I should be able to add a photo to a contact
+As a user, I should be able to email a contact
+As a user, I should be able to report a contact to a supervisor
+As a user, I should be able to export contact list
+As a user, I should be able to import contacts
+As a user, I should be able to schedule a meeting with a contact
+As a user, I should be able to "poke"
+As a user, I should be able to add social media accounts to a contact
+As a user, I should be able to share a contact
 
 
 
@@ -23,8 +36,14 @@ So that...
 ## Prioritize
 
 - MUST HAVE
+As a user, I should be able to find a contact
+As a user, I should be able to see a list of contacts
+As a user, I should be able to add contacts
+
 
 - SHOULD HAVE
+As a user, I should be able to delete contacts
+As a user, I should be able to search contacts
 
 - COULD HAVE
 
