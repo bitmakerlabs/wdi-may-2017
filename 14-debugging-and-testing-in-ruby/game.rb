@@ -1,10 +1,20 @@
+require 'pry'
+require_relative 'player'
+
 class Game
   attr_reader :width, :height
   attr_accessor :players
 
-  def initialize(number_of_players)
+
+  def initialize(number_of_players, width, height)
+    @width = width
+    @height = height
+    @players = []
+
     number_of_players.times do
-      @players << Player.new((0..@width).to_a.sample, (0..@height).to_a.sample)
+      x = (0..@width).to_a.sample
+      y = (0..@height).to_a.sample
+      @players << Player.new(x, y)
     end
   end
 
@@ -13,9 +23,8 @@ class Game
     print "How many people are adventuring? "
     number_of_players = gets.chomp.to_i
 
-    g = new(number_of_players)
+    game = new(number_of_players, 50, 20)
     game.turn
-    end
   end
 
   def turn
