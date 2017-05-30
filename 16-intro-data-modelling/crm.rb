@@ -53,28 +53,22 @@ class CRM
 
   def modify_existing_contact
     puts 'Enter the id of the contact that you would like to modify'
-    id_to_modify = gets.to_i
-    contact = Contact.find(id_to_modify)
+    id = gets.to_i
+    contact = Contact.find(id)
 
-    puts 'Are you sure? (y/n)'
-    answer = gets.chomp
+    puts 'What would you like to change? 1. First name 2. Last name 3. email 4. note '
+    attribute_number = gets.to_i
+    attribute_name = translate_attr_num_to_name(attribute_number).to_sym
 
-    if answer == 'y'
-      puts 'What would you like to change? 1. First name 2. Last name 3. email 4. note '
-      attribute_number = gets.to_i
+    puts "What is the new #{attribute_name}?"
+    attribute_value = gets.chomp
 
-      puts 'What is the new value?'
-      attribute_value = gets.chomp
+    contact.update({attribute_name => attribute_value})
 
-      attribute = attribute_name(attribute_number).to_sym
-      contact.update(attribute => attribute_value)
-
-      puts "Your value was changed to #{ attribute_value }"
-    end
   end
 
   def delete_contact
-    puts 'Which id would you like deleted?'
+    puts 'Enter the id of the contact you want to delete: '
     id = gets.to_i
     contact = Contact.find(id)
     contact.delete
@@ -87,18 +81,18 @@ class CRM
   def search_by_attribute
     puts 'Which attribute do you wish to search by? 1. First name 2. Last name 3. email 4. note'
     attribute_number = gets.chomp.to_i
+    attribute_name = translate_attr_num_to_name(attribute_number).to_sym
 
-    puts 'What do you want to search for?'
+    puts "Search by #{attribute_name}: "
     attribute_value = gets.chomp
 
-    attribute = attribute_name(attribute_number).to_sym
-    contact = Contact.find_by({attribute => attribute_value})
+    contact = Contact.find_by({attribute_name => attribute_value})
 
     display_contact(contact)
   end
 
   def display_contact(contact)
-    puts "#{ contact.full_name }, #{ contact.email } #{ contact.note } #{ contact.id }"
+    puts "#{contact.id}, #{ contact.full_name }, #{ contact.email }, #{ contact.note }"
   end
 
   def display_contacts(contacts)
@@ -107,12 +101,16 @@ class CRM
     end
   end
 
-  def attribute_name(attribute_number)
+  def translate_attr_num_to_name(attribute_number)
     case attribute_number
-    when 1 then 'first_name'
-    when 2 then 'last_name'
-    when 3 then 'email'
-    when 4 then 'note'
+    when 1 then
+      return 'first_name'
+    when 2 then
+      return 'last_name'
+    when 3 then
+      return 'email'
+    when 4 then
+      return 'note'
     end
   end
 
