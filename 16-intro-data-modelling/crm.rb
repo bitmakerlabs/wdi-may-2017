@@ -46,7 +46,6 @@ class CRM
     print 'Enter Email Address: '
     email = gets.chomp
 
-    # 2. still let user create note, just create new note object as well as new contact
     print 'Enter a Note: '
     note_body = gets.chomp
 
@@ -54,23 +53,47 @@ class CRM
     Note.create(contact_id: new_contact.id, body: note_body, written_at: Time.now)
   end
 
+  def modify_notes
+    # if user says they want to modify notes
+    # prompt them to choose either deleting existing note or adding new note
+    print 'Enter 1 if you want to delete an existing note or 2 to add a new note: '
+    selected_option = gets.chomp.to_i
+
+    if selected_option == 1
+
+      # show user the ids of all the notes
+      Note.all.each do |note|
+        puts "#{note.id}, #{note.body}, #{note.written_at}"
+      end
+
+      print 'Enter the id of the note you want to delete: '
+      id_of_note_to_delete = gets.chomp.to_i
+      note_to_delete = Note.find(id_of_note_to_delete)
+      note_to_delete.delete
+    elsif selected_option == 2
+      # they want to add a new note
+    end
+  end
+
   def modify_existing_contact
     puts 'Enter the id of the contact that you would like to modify'
     id = gets.to_i
     contact = Contact.find(id)
 
-    # TODO
-    # 1. don't let user modify notes, only let them delete old ones and add new ones
-    # OR
-    # 2. do let them modify notes?
+
     puts 'What would you like to change? 1. First name 2. Last name 3. email 4. note '
     attribute_number = gets.to_i
     attribute_name = translate_attr_num_to_name(attribute_number).to_sym
 
-    puts "What is the new #{attribute_name}?"
-    attribute_value = gets.chomp
+    if attribute_name == :note
+      modify_notes
+    else
 
-    contact.update({attribute_name => attribute_value})
+      puts "What is the new #{attribute_name}?"
+      attribute_value = gets.chomp
+
+      contact.update({attribute_name => attribute_value})
+    end
 
   end
 
