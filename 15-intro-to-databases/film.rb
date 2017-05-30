@@ -5,11 +5,11 @@ class Film
   @@id = 1;
 
   def initialize(options)
-    @title = options['title']
-    @country = options['country']
-    @genre = options['genre']
-    @rating = options['rating']
-    @description = options['description']
+    @title = options[:title]
+    @country = options[:country]
+    @genre = options[:genre]
+    @rating = options[:rating]
+    @description = options[:description]
     @id = @@id
 
     @@id += 1
