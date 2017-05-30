@@ -53,7 +53,7 @@ class CRM
     Note.create(contact_id: new_contact.id, body: note_body, written_at: Time.now)
   end
 
-  def modify_notes
+  def modify_notes(contact_to_modify)
     # if user says they want to modify notes
     # prompt them to choose either deleting existing note or adding new note
     print 'Enter 1 if you want to delete an existing note or 2 to add a new note: '
@@ -71,7 +71,12 @@ class CRM
       note_to_delete = Note.find(id_of_note_to_delete)
       note_to_delete.delete
     elsif selected_option == 2
-      # they want to add a new note
+      # ask user to input text of note
+      print 'What is your note? '
+      user_input = gets.chomp
+      # save that in the database
+      Note.create(body: user_input, written_at: Time.now, contact_id: contact_to_modify.id)
+
     end
   end
 
@@ -86,7 +91,7 @@ class CRM
     attribute_name = translate_attr_num_to_name(attribute_number).to_sym
 
     if attribute_name == :note
-      modify_notes
+      modify_notes(contact)
     else
 
       puts "What is the new #{attribute_name}?"
@@ -97,12 +102,16 @@ class CRM
 
   end
 
-  # TODO
-  # when deleting contact, also delete all notes that go with that contact
   def delete_contact
     puts 'Enter the id of the contact you want to delete: '
     id = gets.to_i
     contact = Contact.find(id)
+
+    # select * from notes where contact_id=id;
+    Note.where(contact_id: id).each do |note|
+      note.delete
+    end
+
     contact.delete
   end
 
@@ -113,16 +122,23 @@ class CRM
   def search_by_attribute
     puts 'Which attribute do you wish to search by? 1. First name 2. Last name 3. email 4. note'
     attribute_number = gets.chomp.to_i
-    # TODO
-    # if user wants to search by note, handle that case separately
-    # first find note with the text the user enters
-    # then find the contact that corresponds with that note using the foreign key
     attribute_name = translate_attr_num_to_name(attribute_number).to_sym
 
     puts "Search by #{attribute_name}: "
     attribute_value = gets.chomp
 
-    contact = Contact.find_by({attribute_name => attribute_value})
+    # if user wants to search by note, handle that case separately
+    if attribute_name == :note
+      # first find note with the text the user enters
+      matching_note = Note.find_by(body: attribute_value)
+      # then find the contact that corresponds with that note using the foreign key
+      contact = Contact.find_by(id: matching_note.contact_id )
+
+    else
+
+      contact = Contact.find_by({attribute_name => attribute_value})
+
+    end
 
     display_contact(contact)
   end
@@ -130,7 +146,12 @@ class CRM
   def display_contact(contact)
     # when displaying a contact, loop through the list of all notes that are about them
     # and display each note individually
-    puts "#{contact.id}, #{ contact.full_name }, #{ contact.email }, #{ contact.note }"
+    puts "#{contact.id}, #{ contact.full_name }, #{ contact.email }"
+
+    notes = Note.where(contact_id: contact.id)
+    notes.each do |note|
+      puts "\t #{note.body} - #{note.written_at}"
+    end
   end
 
   def display_contacts(contacts)
