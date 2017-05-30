@@ -1,4 +1,5 @@
 require_relative 'contact'
+require_relative 'note'
 
 class CRM
 
@@ -45,10 +46,12 @@ class CRM
     print 'Enter Email Address: '
     email = gets.chomp
 
+    # 2. still let user create note, just create new note object as well as new contact
     print 'Enter a Note: '
-    note = gets.chomp
+    note_body = gets.chomp
 
-    Contact.create(first_name: first_name, last_name: last_name, email: email, note: note)
+    new_contact = Contact.create(first_name: first_name, last_name: last_name, email: email)
+    Note.create(contact_id: new_contact.id, body: note_body, written_at: Time.now)
   end
 
   def modify_existing_contact
@@ -56,6 +59,10 @@ class CRM
     id = gets.to_i
     contact = Contact.find(id)
 
+    # TODO
+    # 1. don't let user modify notes, only let them delete old ones and add new ones
+    # OR
+    # 2. do let them modify notes?
     puts 'What would you like to change? 1. First name 2. Last name 3. email 4. note '
     attribute_number = gets.to_i
     attribute_name = translate_attr_num_to_name(attribute_number).to_sym
@@ -67,6 +74,8 @@ class CRM
 
   end
 
+  # TODO
+  # when deleting contact, also delete all notes that go with that contact
   def delete_contact
     puts 'Enter the id of the contact you want to delete: '
     id = gets.to_i
@@ -81,6 +90,10 @@ class CRM
   def search_by_attribute
     puts 'Which attribute do you wish to search by? 1. First name 2. Last name 3. email 4. note'
     attribute_number = gets.chomp.to_i
+    # TODO
+    # if user wants to search by note, handle that case separately
+    # first find note with the text the user enters
+    # then find the contact that corresponds with that note using the foreign key
     attribute_name = translate_attr_num_to_name(attribute_number).to_sym
 
     puts "Search by #{attribute_name}: "
@@ -92,6 +105,8 @@ class CRM
   end
 
   def display_contact(contact)
+    # when displaying a contact, loop through the list of all notes that are about them
+    # and display each note individually
     puts "#{contact.id}, #{ contact.full_name }, #{ contact.email }, #{ contact.note }"
   end
 
