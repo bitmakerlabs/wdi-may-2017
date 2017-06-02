@@ -5,15 +5,15 @@ get '/' do
 end
 
 get '/about' do
-  'TODO'
+  erb :about
 end
 
 get '/contact_us' do
-  'TODO'
+  erb :contact_us
 end
 
 get '/blog' do
-  'TODO'
+  erb :blog
 end
 
 get '/recipes' do
