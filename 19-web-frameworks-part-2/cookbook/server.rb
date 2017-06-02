@@ -23,5 +23,9 @@ get '/recipes' do
 end
 
 get '/recipes/:id' do
-  params[:id]
+  # 1. Retrieve the recipe from the DB
+  @recipe = Recipe.find(params[:id])
+
+  # 2. Render a recipe page
+  erb :recipe
 end
