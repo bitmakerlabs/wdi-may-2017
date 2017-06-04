@@ -9,7 +9,7 @@ class Film < ActiveRecord::Base
   field :description, as: :text
   field :country, as: :string
   field :rating, as: :integer
-  field :available, as: :boolean
+  field :available, as: :boolean, default: false
 
 end
 
