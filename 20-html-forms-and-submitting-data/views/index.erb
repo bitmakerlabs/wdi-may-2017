@@ -1,7 +1,13 @@
 <h2>Film Library</h2>
 <ul>
   <% Film.all.each do |film| %>
-    <li><%= film.title %></li>
+    <li><%= film.title %>
+      <form action="/films" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="id" value="<%= film.id %>">
+        <input type="submit" value="Delete this film">
+      </form>
+    </li>
   <% end %>
 </ul>
 

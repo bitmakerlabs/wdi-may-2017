@@ -7,11 +7,18 @@ get '/' do
 end
 
 get '/films' do
+  @film = Film.find_by(title: params[:title])
+  erb :search_results
+end
+
+get '/films/:kittens' do
   "GET request: #{params}"
 end
 
 post '/films' do
-  "POST request: #{params}"
+  Film.create({title: params[:title], description: params[:description], available: params[:available], rating: params[:rating], country: params[:country]})
+
+  redirect to('/')
 end
 
 put '/films' do
@@ -19,5 +26,7 @@ put '/films' do
 end
 
 delete '/films' do
-  "DELETE request: #{params}"
+  film = Film.find(params[:id])
+  film.delete
+  redirect to('/')
 end
