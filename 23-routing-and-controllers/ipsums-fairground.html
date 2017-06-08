@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>ipsums-fairground</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/*
+ Solarized Color Schemes originally by Ethan Schoonover
+ http://ethanschoonover.com/solarized
+
+ Ported for PrismJS by Hector Matos
+ Website: https://krakendev.io
+ Twitter Handle: https://twitter.com/allonsykraken)
+*/
+
+/*
+SOLARIZED HEX
+--------- -------
+base03    #002b36
+base02    #073642
+base01    #586e75
+base00    #657b83
+base0     #839496
+base1     #93a1a1
+base2     #eee8d5
+base3     #fdf6e3
+yellow    #b58900
+orange    #cb4b16
+red       #dc322f
+magenta   #d33682
+violet    #6c71c4
+blue      #268bd2
+cyan      #2aa198
+green     #859900
+*/
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #657b83; /* base00 */
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	background: #073642; /* base02 */
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	background: #073642; /* base02 */
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background-color: #fdf6e3; /* base3 */
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #93a1a1; /* base1 */
+}
+
+.token.punctuation {
+	color: #586e75; /* base01 */
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #268bd2; /* blue */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.url,
+.token.inserted {
+	color: #2aa198; /* cyan */
+}
+
+.token.entity {
+	color: #657b83; /* base00 */
+	background: #eee8d5; /* base2 */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #859900; /* green */
+}
+
+.token.function {
+	color: #b58900; /* yellow */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #cb4b16; /* orange */
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Today&#39;s Lesson&#39;s Exercise: <strong>Ipsum&#39;s Fairground</strong></h1>
+
+<ul>
+<li>We&#39;ll make an app for <strong>Ipsum&#39;s Fairground</strong>.</li>
+<li>It&#39;ll be basic CRUD Web Application with details about each ride.</li>
+</ul>
+
+<hr>
+
+<h1 id="toc_1">New Rails App</h1>
+
+<h3 id="toc_2">Terminal:</h3>
+
+<div><pre><code class="language-shell">rails new RideApp
+cd RideApp
+rails server</code></pre></div>
+
+<h3 id="toc_3">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000</code></pre></div>
+
+<ul>
+<li>You should the default <strong>Yay! You&#39;re on Rails! page</strong>.</li>
+<li>This page is the default until you define a route for the root of you website.</li>
+</ul>
+
+<h1 id="toc_4">Restarting Rails</h1>
+
+<p>Unlike Sinatra, Rails does not need a restart when most files are changed.</p>
+
+<p><strong>Rails does not need a restart when the following are changed:</strong></p>
+
+<ul>
+<li>anything inside of <code>/app</code> (models, view controllers, assets, etc.)</li>
+<li><code>config/routes.rb</code></li>
+</ul>
+
+<p><strong>Rails does need a restart when the following are changed:</strong></p>
+
+<ul>
+<li><code>Gemfile</code></li>
+<li><code>/initializers/*</code></li>
+<li><code>/config/*</code> (except for <code>routes.rb</code>)</li>
+</ul>
+
+<hr>
+
+<h1 id="toc_5">Routing</h1>
+
+<p>Use the <code>rails routes</code> command to see what routes are configured.</p>
+
+<h3 id="toc_6">Terminal</h3>
+
+<div><pre><code class="language-shell">rails routes</code></pre></div>
+
+<p>Let&#39;s see what happens when we try to go to a path.</p>
+
+<h3 id="toc_7">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/about</code></pre></div>
+
+<p>Now we&#39;ll configure our first route.</p>
+
+<h3 id="toc_8">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+
+Rails.application.routes.draw do
+  get &#39;about&#39;, to: &#39;rides#about&#39;
+end</code></pre></div>
+
+<ul>
+<li><p><code>get &#39;about&#39;, to: &#39;rides#about&#39;</code> means when <code>about</code> is the path (after the domain), go to the <code>RidesController</code> and call the <code>def about</code> method</p></li>
+<li><p>Let&#39;s see if our route exists now.</p></li>
+</ul>
+
+<h3 id="toc_9">Terminal:</h3>
+
+<div><pre><code class="language-shell">rails routes</code></pre></div>
+
+<ul>
+<li><p>A controller action is a method</p></li>
+<li><p>Let&#39;s test in our browser.</p></li>
+</ul>
+
+<h3 id="toc_10">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/about</code></pre></div>
+
+<ul>
+<li>No more routing error. </li>
+<li>Now what&#39;s the problem?</li>
+</ul>
+
+<hr>
+
+<h1 id="toc_11">Controllers</h1>
+
+<p>Let&#39;s create a controller.</p>
+
+<h3 id="toc_12">Terminal:</h3>
+
+<div><pre><code class="language-shell">rails generate controller rides</code></pre></div>
+
+<p>What happens when we try the website now?</p>
+
+<h3 id="toc_13">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/about</code></pre></div>
+
+<p>Add an <code>about</code> method to handle the route we created.</p>
+
+<h3 id="toc_14">Editor:</h3>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+
+class RidesController &lt; ApplicationController
+  def about
+    render plain: &quot;Welcome to Ipsum&#39;s Fair!  Come for our rides, stay for our hotdogs.&quot;
+  end
+end</code></pre></div>
+
+<h3 id="toc_15">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/about</code></pre></div>
+
+<hr>
+
+<h1 id="toc_16">Lorem Ipsum</h1>
+
+<p>Lorem Ipsum is useful as filler text.</p>
+
+<h3 id="toc_17">Browser:</h3>
+
+<div><pre><code class="language-none">http://www.lipsum.com/</code></pre></div>
+
+<p>You can generate paragraphs or sentences.</p>
+
+<h1 id="toc_18">Lorem Ride</h1>
+
+<p>First let&#39;s check our routes before we add one.</p>
+
+<h3 id="toc_19">Terminal:</h3>
+
+<div><pre><code class="language-shell">rails routes</code></pre></div>
+
+<p>Then we&#39;ll add our route and save our file.</p>
+
+<h3 id="toc_20">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+...
+  get &#39;lorem&#39;, to: &#39;rides#lorem_ride&#39;
+...  </code></pre></div>
+
+<p>Now let&#39;s see if the route we just added exists:</p>
+
+<h3 id="toc_21">Terminal:</h3>
+
+<div><pre><code class="language-shell">rails routes</code></pre></div>
+
+<p>Notice that our new route&#39;s path <code>lorem</code> is different than the action name <code>lorem_ride</code> (unlike our first <code>about</code> route)</p>
+
+<p>What URL do we put into our browser to get this new route?</p>
+
+<h3 id="toc_22">Browser:</h3>
+
+<div><pre><code class="language-none">http:// What url goes here?</code></pre></div>
+
+<hr>
+
+<h3 id="toc_23">Editor:</h3>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+
+class RidesController &lt; ApplicationController
+...  
+  def lorem_ride
+    render plain: &#39;???&#39; # we need to generate some lorem ipsum text
+  end
+end</code></pre></div>
+
+<p>I&#39;ll generate 10 words and add it to my text for the lorem ride.</p>
+
+<h3 id="toc_24">Browser:</h3>
+
+<div><pre><code class="language-none">http://www.lipsum.com/</code></pre></div>
+
+<hr>
+
+<p>Now let&#39;s test in our browser.</p>
+
+<h3 id="toc_25">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/lorem</code></pre></div>
+
+<h2 id="toc_26">Your Turn</h2>
+
+<p>Add two more routes and controller methods using Ipsum generators from this blog post:</p>
+
+<p><a href="http://mashable.com/2013/07/11/lorem-ipsum">http://mashable.com/2013/07/11/lorem-ipsum</a></p>
+
+<p>I can help people now who are stuck.</p>
+
+<p><br></p>
+
+<hr>
+
+<h2 id="toc_27">My Turn</h2>
+
+<p>Now I&#39;ll catch-up to where you&#39;re at.</p>
+
+<h3 id="toc_28">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+
+...
+  get &#39;bacon&#39;, to: &#39;rides#bacon_ride&#39;
+  get &#39;hodor&#39;, to: &#39;rides#game_of_thrones_ride&#39;
+...</code></pre></div>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+
+...  
+  def bacon_ride
+    render plain: &#39;Bacon ipsum dolor amet pastrami alcatra kevin ribeye turkey, spare ribs shank jerky.&#39;
+  end
+
+  def game_of_thrones_ride
+    render plain: &#39;Hodor, hodor; hodor HODOR hodor, hodor hodor? Hodor hodor - hodor...&#39;
+  end
+...</code></pre></div>
+
+<p><br></p>
+
+<hr>
+
+<h1 id="toc_29">Root</h1>
+
+<ul>
+<li>Let&#39;s make a homepage for our site.</li>
+<li>We use the method <code>root</code> to mean nothing after the domain (i.e. no path).</li>
+<li>This time I&#39;m not going to render plain text, but rather render a template.</li>
+</ul>
+
+<h3 id="toc_30">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+...
+  root to: &#39;rides#home&#39;
+...  </code></pre></div>
+
+<h3 id="toc_31">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/</code></pre></div>
+
+<ul>
+<li><p>We don&#39;t need to explicitly create a controller action if there&#39;s nothing in the controller action to do. Just by creating a template, a controller action is implicitly created.</p></li>
+<li><p>Let&#39;s create our template.</p></li>
+</ul>
+
+<h3 id="toc_32">Terminal:</h3>
+
+<div><pre><code class="language-shell">touch app/views/rides/home.html.erb</code></pre></div>
+
+<h3 id="toc_33">Editor:</h3>
+
+<div><pre><code class="language-markup">&lt;!-- app/views/rides/home.html.erb --&gt;
+
+&lt;h1&gt;Welcome to the Ipsum Fair&lt;/h1&gt;</code></pre></div>
+
+<hr>
+
+<h1 id="toc_34">Passing Parameters Using The Routes</h1>
+
+<h3 id="toc_35">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+...
+  get &#39;rides/:ride_name&#39;, to: &#39;rides#show&#39;
+...  </code></pre></div>
+
+<h3 id="toc_36">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/lorem</code></pre></div>
+
+<p><code>lorem</code> is the parameter we&#39;re passing into our controller</p>
+
+<h3 id="toc_37">Editor:</h3>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+...  
+  def show
+    render html: params.inspect
+  end
+...</code></pre></div>
+
+<p><code>inspect</code> is a ruby method you can call on any object to open it up and look inside. It&#39;s useful for debugging.</p>
+
+<h3 id="toc_38">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/lorem</code></pre></div>
+
+<h3 id="toc_39">Editor:</h3>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+...  
+  def show
+    render plain: &quot;Your Ride is &#39;#{params[:ride_name]}&#39;&quot;
+  end
+...</code></pre></div>
+
+<h3 id="toc_40">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/lorem</code></pre></div>
+
+<p>Let&#39;s try a different parameter.</p>
+
+<h3 id="toc_41">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/apple_banana</code></pre></div>
+
+<p>What happens if I remove the word <code>rides</code>?</p>
+
+<h3 id="toc_42">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/apple_banana</code></pre></div>
+
+<p>Let&#39;s go back to our original <code>lorem</code> ride.</p>
+
+<h3 id="toc_43">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/lorem</code></pre></div>
+
+<p>Let&#39;s take away the <code>render plain</code> line from our <code>show</code>.</p>
+
+<h3 id="toc_44">Editor:</h3>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+...  
+  def show
+  end
+...</code></pre></div>
+
+<h3 id="toc_45">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/lorem</code></pre></div>
+
+<ul>
+<li>Rails impliciately tries to render a template for <code>show</code>.</li>
+<li>Where are templates stored?</li>
+</ul>
+
+<h3 id="toc_46">Terminal:</h3>
+
+<div><pre><code class="language-shell">touch app/views/rides/show.html.erb</code></pre></div>
+
+<h3 id="toc_47">Editor:</h3>
+
+<div><pre><code class="language-markup">&lt;!-- app/views/rides/show.html.erb --&gt;
+
+&lt;h1&gt;I am the show!&lt;/h1&gt;</code></pre></div>
+
+<h3 id="toc_48">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/lorem</code></pre></div>
+
+<p>What will happen if we change the ride name and refresh the browser?</p>
+
+<h3 id="toc_49">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/cat-mouse-dog-ride</code></pre></div>
+
+<p>Let&#39;s pass our ride name to the view.</p>
+
+<h3 id="toc_50">Editor:</h3>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+...  
+  def show
+    @ride_name = params[:ride_name]
+  end
+...</code></pre></div>
+
+<p>What do we have to do to display the ride name in the view?</p>
+
+<h3 id="toc_51">Editor:</h3>
+
+<div><pre><code class="language-markup">&lt;!-- app/views/rides/show.html.erb --&gt;
+
+&lt;h1&gt;Welcome to the &lt;%= @ride_name %&gt; Ride!&lt;/h1&gt;</code></pre></div>
+
+<p>Let&#39;s do this using a more conventional way:</p>
+
+<h3 id="toc_52">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+...
+  get &#39;rides/:id&#39;, to: &#39;rides#show&#39;
+...</code></pre></div>
+
+<p>Now how do I get the Ride Name?</p>
+
+<h3 id="toc_53">Editor:</h3>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+...  
+  def show
+    @ride_name = params[:id]
+  end
+...</code></pre></div>
+
+<h3 id="toc_54">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/cat-mouse-dog-ride</code></pre></div>
+
+<p>Let&#39;s move our Lorem Ipsum text to be retrieved by the show.</p>
+
+<h3 id="toc_55">Editor:</h3>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+...  
+  def show
+    @ride_name = params[:id]
+    @description = case @ride_name
+                   when &#39;lorem&#39;
+                     lorem_ride
+                   when &#39;bacon&#39;
+                     bacon_ride                    
+                   when &#39;hodor&#39;
+                     game_of_thrones_ride
+                   else
+                     &quot;We don&#39;t have that ride, sorry.&quot;
+                   end
+  end
+...
+
+  def lorem_ride
+    &#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#39;
+  end
+    
+  def bacon_ride
+    &#39;Bacon ipsum dolor amet pastrami alcatra kevin ribeye turkey, spare ribs shank jerky.&#39;
+  end
+
+  def game_of_thrones_ride
+    &#39;Hodor, hodor; hodor HODOR hodor, hodor hodor? Hodor hodor - hodor...&#39;
+  end
+  </code></pre></div>
+
+<h3 id="toc_56">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/lorem</code></pre></div>
+
+<p>What do I need to put in my view template to show both the name and description?</p>
+
+<h3 id="toc_57">Editor:</h3>
+
+<div><pre><code class="language-markup">&lt;!-- app/views/rides/show.html.erb --&gt;
+
+&lt;h1&gt;&lt;%= @ride_name %&gt; Ride&lt;/h1&gt;
+&lt;p&gt;&lt;%= @description %&gt;&lt;/p&gt;</code></pre></div>
+
+<h3 id="toc_58">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/bacon</code></pre></div>
+
+<h3 id="toc_59">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/hodor</code></pre></div>
+
+<h3 id="toc_60">Browser:</h3>
+
+<div><pre><code class="language-none">http://localhost:3000/rides/are-you-for-real</code></pre></div>
+
+<p><br></p>
+
+<hr>
+
+<h1 id="toc_61">Index</h1>
+
+<h3 id="toc_62">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+...
+  get &#39;rides&#39;, to: &#39;rides#index&#39;
+...  
+</code></pre></div>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+...
+  def index
+    @rides = { lorem: lorem_ride, bacon: bacon_ride, hodor: game_of_thrones_ride }
+  end
+...  
+</code></pre></div>
+
+<div><pre><code class="language-markup">&lt;!-- app/views/rides/index.html.erb --&gt;
+
+&lt;h1&gt;Rides We Have&lt;/h1&gt;
+
+&lt;% @rides.each do |ride_name, ride_description| %&gt;
+  &lt;h2&gt;&lt;%= ride_name %&gt;&lt;/h2&gt;
+  &lt;p&gt;&lt;%= ride_description %&gt;&lt;/p&gt;
+&lt;% end %&gt;</code></pre></div>
+
+<h1 id="toc_63">New / Create</h1>
+
+<h3 id="toc_64">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+
+...
+  get &#39;rides/new&#39;, to: &#39;rides#new&#39;
+  post &#39;rides&#39;,    to: &#39;rides#create&#39;
+...  
+</code></pre></div>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+
+...
+  def new
+    # Code to display the new form
+  end
+  
+  def create
+    # Code to create a new ride
+    redirect_to rides_path
+  end  
+...  
+</code></pre></div>
+
+<div><pre><code class="language-markup">&lt;!-- app/views/rides/new.html.erb --&gt;
+
+&lt;h1&gt;Add New Ride&lt;/h1&gt;
+
+&lt;%= form_tag rides_path do %&gt;
+  Imagine a new ride form here.
+  &lt;br&gt;&lt;br&gt;
+  &lt;%= submit_tag &#39;Save New Ride&#39; %&gt;
+&lt;% end %&gt;</code></pre></div>
+
+<hr>
+
+<h1 id="toc_65">Edit / Update</h1>
+
+<h3 id="toc_66">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+...
+  get   &#39;rides/:id/edit&#39;, to: &#39;rides#edit&#39;
+  patch &#39;rides&#39;,          to: &#39;rides#update&#39;
+...  
+</code></pre></div>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+...
+  def show
+    get_name_and_description
+  end
+...  
+  def edit
+    get_name_and_description
+  end
+  
+  def update
+    # Code to update the ride
+    redirect_to rides_path
+  end  
+...
+  def get_name_and_description
+    @ride_name = params[:id]
+
+    @description =
+      case @ride_name
+        when &#39;lorem&#39;
+          lorem_ride
+        when &#39;bacon&#39;
+          bacon_ride
+        when &#39;hodor&#39;
+          game_of_thrones_ride
+        else
+          &quot;Sorry, we don&#39;t have that ride.&quot;
+        end
+  end
+...
+</code></pre></div>
+
+<div><pre><code class="language-markup">&lt;!-- app/views/rides/edit.html.erb --&gt;
+
+&lt;h1&gt;Edit &lt;%= @ride_name %&gt; Ride&lt;/h1&gt;
+
+&lt;%= form_tag rides_path do %&gt;
+  Imagine an edit ride form here.
+  &lt;br&gt;&lt;br&gt;
+  &lt;%= submit_tag &#39;Save Ride&#39; %&gt;
+&lt;% end %&gt;</code></pre></div>
+
+<hr>
+
+<h1 id="toc_67">Delete</h1>
+
+<h3 id="toc_68">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+
+...
+  delete &#39;ride&#39;, to: &#39;rides#destroy&#39;
+...  
+</code></pre></div>
+
+<div><pre><code class="language-ruby"># app/controllers/rides_controller.rb
+
+...
+  def destroy
+    # Code to destroy a record
+    redirect_to rides_path
+  end
+...  
+</code></pre></div>
+
+<h1 id="toc_69">Resourceful Routing</h1>
+
+<p>Let&#39;s use resourceful routing to create these routes instead.</p>
+
+<h3 id="toc_70">Terminal:</h3>
+
+<div><pre><code class="language-shell">rails routes</code></pre></div>
+
+<h3 id="toc_71">Editor:</h3>
+
+<div><pre><code class="language-ruby"># config/routes.rb
+...
+  resources :rides
+...  </code></pre></div>
+
+<h3 id="toc_72">Terminal:</h3>
+
+<div><pre><code class="language-shell">rails routes</code></pre></div>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\w\W]*?\*\//,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0}],string:{pattern:/(["'])(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,lookbehind:!0,inside:{punctuation:/(\.|\\)/}},keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(true|false)\b/,"function":/[a-z0-9_]+(?=\()/i,number:/\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+</script>
+
+<script type="text/javascript">
+!function(e){e.languages.ruby=e.languages.extend("clike",{comment:/#(?!\{[^\r\n]*?\}).*/,keyword:/\b(alias|and|BEGIN|begin|break|case|class|def|define_method|defined|do|each|else|elsif|END|end|ensure|false|for|if|in|module|new|next|nil|not|or|raise|redo|require|rescue|retry|return|self|super|then|throw|true|undef|unless|until|when|while|yield)\b/});var n={pattern:/#\{[^}]+\}/,inside:{delimiter:{pattern:/^#\{|\}$/,alias:"tag"},rest:e.util.clone(e.languages.ruby)}};e.languages.insertBefore("ruby","keyword",{regex:[{pattern:/%r([^a-zA-Z0-9\s\{\(\[<])(?:[^\\]|\\[\s\S])*?\1[gim]{0,3}/,inside:{interpolation:n}},{pattern:/%r\((?:[^()\\]|\\[\s\S])*\)[gim]{0,3}/,inside:{interpolation:n}},{pattern:/%r\{(?:[^#{}\\]|#(?:\{[^}]+\})?|\\[\s\S])*\}[gim]{0,3}/,inside:{interpolation:n}},{pattern:/%r\[(?:[^\[\]\\]|\\[\s\S])*\][gim]{0,3}/,inside:{interpolation:n}},{pattern:/%r<(?:[^<>\\]|\\[\s\S])*>[gim]{0,3}/,inside:{interpolation:n}},{pattern:/(^|[^\/])\/(?!\/)(\[.+?]|\\.|[^\/\r\n])+\/[gim]{0,3}(?=\s*($|[\r\n,.;})]))/,lookbehind:!0}],variable:/[@$]+[a-zA-Z_][a-zA-Z_0-9]*(?:[?!]|\b)/,symbol:/:[a-zA-Z_][a-zA-Z_0-9]*(?:[?!]|\b)/}),e.languages.insertBefore("ruby","number",{builtin:/\b(Array|Bignum|Binding|Class|Continuation|Dir|Exception|FalseClass|File|Stat|File|Fixnum|Fload|Hash|Integer|IO|MatchData|Method|Module|NilClass|Numeric|Object|Proc|Range|Regexp|String|Struct|TMS|Symbol|ThreadGroup|Thread|Time|TrueClass)\b/,constant:/\b[A-Z][a-zA-Z_0-9]*(?:[?!]|\b)/}),e.languages.ruby.string=[{pattern:/%[qQiIwWxs]?([^a-zA-Z0-9\s\{\(\[<])(?:[^\\]|\\[\s\S])*?\1/,inside:{interpolation:n}},{pattern:/%[qQiIwWxs]?\((?:[^()\\]|\\[\s\S])*\)/,inside:{interpolation:n}},{pattern:/%[qQiIwWxs]?\{(?:[^#{}\\]|#(?:\{[^}]+\})?|\\[\s\S])*\}/,inside:{interpolation:n}},{pattern:/%[qQiIwWxs]?\[(?:[^\[\]\\]|\\[\s\S])*\]/,inside:{interpolation:n}},{pattern:/%[qQiIwWxs]?<(?:[^<>\\]|\\[\s\S])*>/,inside:{interpolation:n}},{pattern:/("|')(#\{[^}]+\}|\\(?:\r?\n|\r)|\\?.)*?\1/,inside:{interpolation:n}}]}(Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.markup={comment:/<!--[\w\W]*?-->/,prolog:/<\?[\w\W]+?\?>/,doctype:/<!DOCTYPE[\w\W]+?>/,cdata:/<!\[CDATA\[[\w\W]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=.$<]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i,inside:{tag:{pattern:/^<\/?[^\s>\/]+/i,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=(?:('|")[\w\W]*?(\1)|[^\s>]+)/i,inside:{punctuation:/[=>"']/}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:/&#?[\da-z]{1,8};/i},Prism.hooks.add("wrap",function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))}),Prism.languages.xml=Prism.languages.markup,Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup;
+</script>
+
+
+</body>
+
+</html>

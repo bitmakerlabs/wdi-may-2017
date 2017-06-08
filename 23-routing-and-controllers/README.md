@@ -24,6 +24,7 @@ Today we'll take our first deep dive into Rails and learn about Routing and Cont
   - Views
   - Params Hash
   - Seven Controller Methods: In-depth
+  <ul>
     - Index
     - Show
     - New
@@ -31,7 +32,8 @@ Today we'll take our first deep dive into Rails and learn about Routing and Cont
     - Edit
     - Update
     - Destroy
-
+  </ul>
+  
 - #### Wrap-up <small>(5 min)</small>
   - Recap
   - Further Resources
@@ -430,5 +432,5 @@ end
 
 Let's create a Rails App!
 
-Open [ipsums-fairground.md](ipsums-fairground.md)
+Open [ipsums-fairground.html](ipsums-fairground.html)
 

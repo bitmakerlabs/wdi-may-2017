@@ -1,0 +1,2 @@
+module StuffysHelper
+end
