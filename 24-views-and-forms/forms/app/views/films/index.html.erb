@@ -1,0 +1,7 @@
+<h1>Films</h1>
+
+<ul>
+  <% @films.each do |film| %>
+    <li><%= link_to film.title, edit_film_path(film) %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,19 @@
+<%= form_for @film do |f| %>
+  <!-- <input name="title" type="text" value="<%= @film.title %>" /> -->
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :director %>
+    <%= f.text_field :director %>
+  </div>
+
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.number_field :year %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
