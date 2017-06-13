@@ -3,17 +3,11 @@ class Track < ApplicationRecord
   SHORT = 180000
   LONG  = 360000
 
-  def self.short
-    shorter_than(SHORT)
-  end
+  scope :starts_with, -> (char) { where('name ILIKE ?', "#{ char }%") }
 
-  def self.medium
-    longer_than(SHORT).shorter_than(LONG)
-  end
-
-  def self.long
-    longer_than(LONG)
-  end
+  scope :short,  -> { shorter_than(SHORT) }
+  scope :medium, -> { longer_than(SHORT).shorter_than(LONG) }
+  scope :long,   -> { longer_than(LONG) }
 
   def self.shorter_than(milliseconds)
     where('milliseconds < ?', milliseconds)
