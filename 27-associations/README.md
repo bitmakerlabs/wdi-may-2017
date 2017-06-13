@@ -30,8 +30,8 @@
 - [Active Record Associations](http://guides.rubyonrails.org/association_basics.html)
 
 ## Many to many
-- has_many, through:`
-- has_any_belongs_to_many`
+- `has_many, through:`
+- `has_any_belongs_to_many`
 - deciding when to make the join table into its own model
 
 - implement with pictures & tags in Photogur
