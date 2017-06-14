@@ -12,4 +12,10 @@
       </li>
     <% end %>
   </ol>
+  <h2>Tags:</h2>
+  <ul>
+    <% @picture.tags.each do |tag| %>
+      <li><p> <%= tag.name %> </p></li>
+    <% end %>
+  </ul>
 </section>

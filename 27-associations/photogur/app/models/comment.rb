@@ -5,4 +5,5 @@ class Comment < ApplicationRecord
   # @comment.picture= @picture
   # @comment.build_picture
   # @comment.create_picture
+  has_many :tags, through: :picture
 end
