@@ -9,7 +9,6 @@
 4. Reading the docs
 5. Many to many
 6. Through relationships
-7. Associations and forms
 
 ## Types of relationships
 - 1-many
