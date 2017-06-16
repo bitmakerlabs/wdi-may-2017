@@ -11,11 +11,19 @@
   <body>
 
     <p><%= link_to 'Home', root_path %></p>
-    <% if false %>
-      <p><%= link_to 'Logout', sessions_path, method: :delete %></p>
+
+    <% if session[:user_id] %>
+      <p>
+        Hello user <%= session[:user_id] %>!
+        |
+        <%= link_to 'Logout', sessions_path, method: :delete %>
+      </p>
     <% else %>
-      <p><%= link_to 'New User', new_users_path %></p>
-      <p><%= link_to 'Login', new_sessions_path %></p>
+      <p>
+        <%= link_to 'New User', new_users_path %>
+        |
+        <%= link_to 'Login', new_sessions_path %>
+      </p>
     <% end %>
 
     <% if flash.any? %>
