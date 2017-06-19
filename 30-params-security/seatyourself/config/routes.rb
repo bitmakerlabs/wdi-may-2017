@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'restaurants/index'
+
+  get 'restaurants/show'
+
   get 'home/show'
   root 'home#show'
 
