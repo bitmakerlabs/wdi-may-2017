@@ -14,8 +14,8 @@ We the introduce the concepts of web security, different types of attacks, and w
 * Parameters (i.e. Params) Explained
   * What are Params
   * Where do Params come from
-    * GET request - From the Query String
-    * POST or PATCH request - From the form data
+    * GET request - From the URL and the Query String
+    * POST or PATCH request - From the URL and Form data
   * Contents of Params
     * Default parameters - params[:controller] and params[:action]
     * Routing parameters - params[:id]
@@ -59,3 +59,7 @@ We the introduce the concepts of web security, different types of attacks, and w
 ## Links
 
 * [Ruby on Rails Security Guide](http://guides.rubyonrails.org/security.html)
+* [OWASP Top 10](https://www.owasp.org/index.php/Top_10_2017-Top_10)
+* [OWASP Proactive Controls](http://resources.infosecinstitute.com/owasp-proactive-controls-part-1)
+* [nVisium Seccasts](https://nvisium.com/blog/tags/seccasts/)
+* [Brakeman Security Analysis Gem](https://github.com/presidentbeef/brakeman)
