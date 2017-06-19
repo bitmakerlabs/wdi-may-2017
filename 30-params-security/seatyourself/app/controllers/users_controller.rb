@@ -20,4 +20,35 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @user = current_user
+
+    unless @user
+      flash[:error] = 'You are not logged in'
+      redirect_to root_url
+    end
+  end
+
+  def update
+    @user = current_user
+
+    unless @user
+      flash[:error] = 'You are not logged in'
+      redirect_to root_url and return
+    end
+
+    @user.email                 = params[:user][:email]
+    @user.password              = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
+
+    if @user.save
+      flash[:notice] = 'Account successfully updated!'
+      redirect_to root_url
+    else
+      flash.now[:error] = 'Sorry, try again!'
+      render :edit
+    end
+  end
+
 end
