@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new params.require(:user).permit(:email, :password, :password_confirmation)
+    @user = User.new user_params
 
     if @user.save
       # default behaviour of flash works on a redirect
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       redirect_to root_url and return
     end
 
-    @user.assign_attributes params.require(:user).permit(:email, :password, :password_confirmation, :bio)
+    @user.assign_attributes user_params
 
     if @user.save
       flash[:notice] = 'Account successfully updated!'
@@ -48,6 +48,10 @@ private
 
   def find_user
     @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :bio)
   end
 
 end
