@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :find_user, only: %i(edit update)
+
   def new
     @user = User.new
   end
@@ -22,8 +25,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
-
     unless @user
       flash[:error] = 'You are not logged in'
       redirect_to root_url
@@ -31,8 +32,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-
     unless @user
       flash[:error] = 'You are not logged in'
       redirect_to root_url and return
@@ -49,6 +48,12 @@ class UsersController < ApplicationController
       flash.now[:error] = 'Sorry, try again!'
       render :edit
     end
+  end
+
+private
+
+  def find_user
+    @user = current_user
   end
 
 end
