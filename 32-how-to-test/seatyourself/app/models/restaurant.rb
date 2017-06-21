@@ -9,6 +9,25 @@ class Restaurant < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def available?(number_of_people, datetime)
+    time_during_opening_hours(datetime) && not_in_past(datetime) && room(number_of_people, datetime)
+  end
+
+  def time_during_opening_hours(datetime)
+    return datetime.hour >= self.opening_hour && datetime.hour < self.closing_hour
+  end
+
+  def not_in_past(datetime)
+    !datetime.past?
+  end
+
+  def room(number_of_people, datetime)
+    current_capacity(datetime) >= number_of_people
+  end
+
+  def current_capacity(datetime)
+    capacity - reservations.where(begin_time: datetime).sum(:people)
+  end
 
   # This method will return a list of times in which a reservation can be made
   def time_slots
