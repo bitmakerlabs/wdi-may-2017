@@ -1,9 +1,9 @@
 class Restaurant < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
-  validates :name, :presence => true
+  validates :name, presence: true
 
-  belongs_to :category # not actually being used yet
+  belongs_to :category
   has_many :reservations
 
   geocoded_by :address
