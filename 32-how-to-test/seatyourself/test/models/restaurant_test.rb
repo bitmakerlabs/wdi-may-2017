@@ -2,6 +2,15 @@ require 'test_helper'
 
 class RestaurantTest < ActiveSupport::TestCase
 
+  def test_restaurant_is_invalid_without_name
+  end
+
+  def test_restaurant_is_invalid_without_opening_hour
+  end
+
+  def test_restaurant_is_invalid_without_closing_hour
+  end
+
   def test_restaurant_is_available_when_empty_during_opening_hours
   end
 

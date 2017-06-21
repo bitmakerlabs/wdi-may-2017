@@ -1,7 +1,7 @@
 class Restaurant < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
-  validates :name, presence: true
+  validates :name, :opening_hour, :closing_hour, presence: true
 
   belongs_to :category
   has_many :reservations
