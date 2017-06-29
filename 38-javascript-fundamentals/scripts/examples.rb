@@ -26,7 +26,7 @@ days_of_the_week[1]      # => Monday
 days_of_the_week.length  # => 7
 
 # Object Literals
-an_object = { key: "value", name: "description", "title": "body"}
+an_object = { :key => 'value', key: "value", name: "description", "title": "body"}
 
 
 def simple_for_loop
