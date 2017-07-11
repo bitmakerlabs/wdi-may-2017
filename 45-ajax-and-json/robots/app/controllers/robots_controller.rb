@@ -12,8 +12,6 @@ class RobotsController < ApplicationController
 
     if request.xhr? # XmlHttpRequest
       render layout: false
-    else
-      render
     end
 
   end
