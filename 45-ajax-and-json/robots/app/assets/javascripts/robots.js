@@ -21,7 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }).done(function(data) {
         // Step 4: Update the page
         var robotDetails = document.querySelector('#robot-details');
-        robotDetails.innerHTML = data;
+        //robotDetails.innerHTML = data;
+
+        var profilePicSrc = 'http://robohash.org/' + data.address;
+
+        var img = document.createElement('img');
+        img.src = profilePicSrc
+
+        robotDetails.appendChild(img);
       });
 
     });
