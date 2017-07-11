@@ -9,6 +9,13 @@ class RobotsController < ApplicationController
   def show
     # We don't need to load the robot here, it's done in the load_robot method
     # @robot = Robot.find(params[:id])
+
+    if request.xhr? # XmlHttpRequest
+      render layout: false
+    else
+      render
+    end
+
   end
 
   private
