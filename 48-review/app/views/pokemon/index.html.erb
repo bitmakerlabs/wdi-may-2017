@@ -1,0 +1,16 @@
+<h1>Pokemon info</h1>
+
+<h3>There are <%= @pokemon_data["count"] %> different Pokemon in the world.</h3>
+
+
+<%= form_tag('/', method: :get) do %>
+  <%= number_field_tag :quantity %>
+  <%= submit_tag %>
+<% end %>
+
+
+<% @pokemon.each do |current_pokemon| %>
+  <p><%= current_pokemon['name'] %></p>
+<% end %>
+
+<%= @pokemon %>
